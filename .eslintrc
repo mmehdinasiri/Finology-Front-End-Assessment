@@ -1,18 +1,16 @@
 {
 	"root": true,
-	"parser": "@typescript-eslint/parser",
 	"settings": {
 		"react": {
 			"version": "detect"
 		}
 	},
 	"extends": [
-		"standard",
-		"standard-react",
+		"react-app",
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
 		"prettier",
-		"plugin:react/recommended",
-		"plugin:prettier/recommended",
-		"plugin:@typescript-eslint/eslint-recommended"
+		"plugin:prettier/recommended"
 	],
 	"env": {
 		"node": true
@@ -24,18 +22,5 @@
 			"jsx": true
 		}
 	},
-	"rules": {
-		"space-before-function-paren": 0,
-		"react/prop-types": 0,
-		"react/jsx-handler-names": 0,
-		"react/jsx-fragments": 0,
-		"react/no-unused-prop-types": 0,
-		"import/export": 0,
-		"linebreak-style": 0,
-		"no-unused-vars": 0,
-		"react/linebreak-style": 0,
-		"react/jsx-uses-react": "off",
-		"react/react-in-jsx-scope": "off",
-		"no-use-before-define": 1
-	}
+	"rules": {}
 }

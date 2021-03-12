@@ -1,5 +1,4 @@
-const App = () => {
-	const [state, setstate] = useState(initialState)
+const App = (): JSX.Element => {
 	return <div className='App'>this is main container</div>
 }
 
