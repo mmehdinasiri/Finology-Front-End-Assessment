@@ -8,7 +8,7 @@ const Header: FC = () => {
 		<header className='container-fluid header'>
 			<nav className='navbar navbar-expand-lg container'>
 				<a className='navbar-brand' href='/'>
-					<img src='images/header/logo.png' alt='logo' />
+					<img src='assets/header/logo.png' alt='logo' />
 				</a>
 				<button
 					onClick={() => setToggleMenu(!toggleMenu)}

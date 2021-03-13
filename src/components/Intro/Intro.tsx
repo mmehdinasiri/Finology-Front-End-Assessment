@@ -17,17 +17,17 @@ const Intro: FC = () => {
 						We at EasyWork has the solution.
 					</p>
 					<div className='intro-img'>
-						<img src='images/banner/banner.png' alt='banner' />
+						<img src='assets/banner/banner.png' alt='banner' />
 					</div>
 				</div>
 				<img
 					className='intro--left-decor'
-					src='images/banner/left.svg'
+					src='assets/banner/banner-rounded-001.svg'
 					alt='left-banner'
 				/>
 				<img
 					className='intro--right-decor'
-					src='images/banner/right.svg'
+					src='assets/banner/banner-rounded-002.svg'
 					alt='right-banner'
 				/>
 			</div>

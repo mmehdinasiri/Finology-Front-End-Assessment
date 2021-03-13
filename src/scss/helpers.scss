@@ -1,6 +1,12 @@
 .is-white {
 	color: white;
 }
+.is-primary {
+	color: $primary-color;
+}
+.is-wight-800 {
+	font-weight: 800;
+}
 .is-bg-primary {
 	background-color: $primary-color;
 }

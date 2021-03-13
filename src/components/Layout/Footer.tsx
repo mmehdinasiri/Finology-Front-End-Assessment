@@ -7,7 +7,7 @@ const Footer: FC = () => {
 				<div className='row'>
 					<div className='col-12 col-md-4 d-flex align-items-center'>
 						<a className='navbar-brand' href='/'>
-							<img src='images/header/logo.png' alt='logo' />
+							<img src='assets/header/logo.png' alt='logo' />
 						</a>
 						<h3 className='is-white'>Easy Work</h3>
 					</div>
