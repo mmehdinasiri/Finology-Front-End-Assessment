@@ -18,7 +18,7 @@ const BestExperiences: FC = () => {
 						culpa qui officia deserunt mollit anim id est laborum.
 					</p>
 				</div>
-				<div className='col-12 col-lg-6 order-lg-first'>
+				<div className='col-12 col-lg-7 pr-lg-5 order-lg-first'>
 					<img src='assets/content/content-001.png' alt='img-content' />
 				</div>
 			</div>
