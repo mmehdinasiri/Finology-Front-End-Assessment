@@ -4,9 +4,9 @@ body {
 	font-weight: 400;
 	background-color: $body-bg;
 	color: $text-color;
+	overflow-x: hidden;
 }
-$header-height: 111px;
-$footer-height: 188px;
+
 .main-content {
 	min-height: calc(100vh - #{$footer-height} - 111px);
 }

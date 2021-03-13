@@ -1,7 +1,11 @@
-import Layout from './components/Layout/Layout'
+import { Layout, Intro } from './components'
 
 const App = (): JSX.Element => {
-	return <Layout>this is main container</Layout>
+	return (
+		<Layout>
+			<Intro />
+		</Layout>
+	)
 }
 
 export default App
