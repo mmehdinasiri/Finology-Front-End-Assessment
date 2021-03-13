@@ -1,3 +1,9 @@
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~sass-rem';
+
 @import './setting.scss';
+@import './overStrap.scss';
+@import './helpers.scss';
 
 @import './layout/base.scss';
+@import './layout/header.scss';

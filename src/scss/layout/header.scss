@@ -1,0 +1,13 @@
+.header {
+	background-color: $primary-color;
+	.navbar-nav {
+		.nav-link {
+			color: white;
+			transition: color 200ms ease-in-out;
+			&:hover,
+			&.active {
+				color: $secondary-color;
+			}
+		}
+	}
+}

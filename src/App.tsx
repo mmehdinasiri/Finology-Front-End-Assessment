@@ -1,5 +1,7 @@
+import Layout from './components/Layout/Layout'
+
 const App = (): JSX.Element => {
-	return <div className='App'>this is main container</div>
+	return <Layout>this is main container</Layout>
 }
 
 export default App
