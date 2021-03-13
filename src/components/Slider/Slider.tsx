@@ -4,30 +4,47 @@ import React from 'react'
 // import Swiper core and required components
 import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper'
 import { Swiper } from 'swiper/react'
+import 'swiper/swiper.scss'
+import 'swiper/components/navigation/navigation.scss'
+import 'swiper/components/pagination/pagination.scss'
+import 'swiper/components/scrollbar/scrollbar.scss'
 
 export interface ISlider {
 	children: JSX.Element[] | JSX.Element
-	params: Swiper
-	paginationClassName: string
+	params?: Swiper
 }
 
 SwiperCore.use([Navigation, Pagination, Scrollbar])
 
 const initParams = {
-	centeredSlides: true,
+	// centeredSlides: true,
 	loop: true,
-	slidesPerView: 2.5,
+	slidesPerView: 2.6,
 	spaceBetween: 20,
+	Navigation: true,
 	pagination: {
 		el: '.swiper-pagination',
 		clickable: true
+	},
+	breakpoints: {
+		0: {
+			slidesPerView: 1
+		},
+		992: {
+			slidesPerView: 2
+		},
+		1200: {
+			slidesPerView: 2.6
+		}
 	}
 }
 const Slider = ({ children, params }: ISlider): JSX.Element => {
 	const totalParam = { ...initParams, ...params }
 	return (
 		<div className='position-relative'>
-			<Swiper {...totalParam}>{children}</Swiper>
+			<Swiper {...totalParam} className='p-1'>
+				{children}{' '}
+			</Swiper>
 			<div className='swiper-pagination' />
 		</div>
 	)

@@ -1,4 +1,10 @@
-import { Layout, Intro, BestExperiences, EasyAccess } from './components'
+import {
+	Layout,
+	Intro,
+	BestExperiences,
+	EasyAccess,
+	CommentSection
+} from './components'
 
 const App = (): JSX.Element => {
 	return (
@@ -6,6 +12,7 @@ const App = (): JSX.Element => {
 			<Intro />
 			<BestExperiences />
 			<EasyAccess />
+			<CommentSection />
 		</Layout>
 	)
 }

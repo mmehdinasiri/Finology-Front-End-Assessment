@@ -4,6 +4,15 @@
 .is-primary {
 	color: $primary-color;
 }
+.is-text-color {
+	color: $text-color;
+}
+.is-text-gray {
+	color: $text-gray;
+}
+.is-bg-red {
+	background-color: $red;
+}
 .is-wight-800 {
 	font-weight: 800;
 }
@@ -12,4 +21,16 @@
 }
 .is-base-z {
 	z-index: $base-z-index;
+}
+.is-global-shadow {
+	box-shadow: $global-shadow;
+}
+.font-12 {
+	font-size: rem(12px);
+}
+.font-14 {
+	font-size: rem(14px);
+}
+.font-18 {
+	font-size: rem(18px);
 }

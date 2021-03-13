@@ -3,12 +3,16 @@
 ///////////////////////////////////
 $primary-color: #252584;
 $secondary-color: #00d9ff;
-$text-color: #cfcfde;
+$text-color-light: #cfcfde;
+$text-color: #444;
+$text-gray: $gray-600;
 $body-bg: white;
+$red: #fe0302;
 
 ///////////////////////////////////
 /////////////  other  /////////////
 ///////////////////////////////////
+$global-shadow: 0 0 rem(8px) 0 rgba(0, 0, 0, 0.2);
 $base-z-index: 10;
 $header-height: 111px;
 $footer-height: 188px;
