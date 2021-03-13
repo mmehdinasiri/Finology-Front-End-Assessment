@@ -4,7 +4,7 @@ const Customers: FC = () => {
 	return (
 		<div className='container py-4'>
 			<h3 className='is-wight-800 is-primary m-0 text-center'>
-				We've workd with
+				We've worked with
 			</h3>
 			<ul className='d-flex justify-content-between p-0 flex-wrap'>
 				<li>

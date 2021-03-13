@@ -2,10 +2,9 @@ import React from 'react'
 
 // https://swiperjs.com/react/
 // import Swiper core and required components
-import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper'
+import SwiperCore, { Pagination, Scrollbar } from 'swiper'
 import { Swiper } from 'swiper/react'
 import 'swiper/swiper.scss'
-import 'swiper/components/navigation/navigation.scss'
 import 'swiper/components/pagination/pagination.scss'
 import 'swiper/components/scrollbar/scrollbar.scss'
 
@@ -14,14 +13,13 @@ export interface ISlider {
 	params?: Swiper
 }
 
-SwiperCore.use([Navigation, Pagination, Scrollbar])
+SwiperCore.use([Pagination, Scrollbar])
 
 const initParams = {
 	// centeredSlides: true,
 	loop: true,
 	slidesPerView: 2.6,
 	spaceBetween: 20,
-	Navigation: true,
 	pagination: {
 		el: '.swiper-pagination',
 		clickable: true
