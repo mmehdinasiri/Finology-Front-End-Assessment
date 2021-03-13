@@ -5,3 +5,8 @@ body {
 	background-color: $body-bg;
 	color: $text-color;
 }
+$header-height: 111px;
+$footer-height: 188px;
+.main-content {
+	min-height: calc(100vh - #{$footer-height} - 111px);
+}

@@ -6,7 +6,7 @@ const Header: FC = () => {
 	const [toggleMenu, setToggleMenu] = useState<boolean>(false)
 	return (
 		<header className='container-fluid header'>
-			<nav className='navbar navbar-expand-lg '>
+			<nav className='navbar navbar-expand-lg container'>
 				<a className='navbar-brand' href='/'>
 					<img src='images/header/logo.png' alt='logo' />
 				</a>
