@@ -35,7 +35,7 @@ const DropDown = ({
 			<select
 				ref={register}
 				className={` form-control ${selectClass || ''}`}
-				name='fieldName'
+				name={fieldName}
 			>
 				<option value=''>{placeholder}</option>
 
@@ -50,7 +50,9 @@ const DropDown = ({
 			{errors && (
 				<>
 					{errors[fieldName] && errors[fieldName]?.type === 'required' && (
-						<p className='is-red'>Field is required</p>
+						<p className='is-red position-absolute font-12'>
+							Field is required
+						</p>
 					)}
 				</>
 			)}

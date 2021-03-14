@@ -3,13 +3,17 @@ import ContactUsForm from './ContactUsForm'
 
 const ContactUs: FC = () => {
 	return (
-		<div className='container py-4'>
-			<h3 className='is-wight-800 is-primary m-0 text-center'>Contact Us</h3>
+		<div className='container py-5'>
+			<h3 className='is-wight-800 is-primary m-0 text-center mb-5'>
+				Contact Us
+			</h3>
 			<div className='row no-gutters '>
-				<div className='col-12 col-md-6'>
-					<ContactUsForm />
+				<div className='col-12 col-lg-6'>
+					<div className='is-global-shadow rounded p-5'>
+						<ContactUsForm />
+					</div>
 				</div>
-				<div className='col-12 col-md-6'>map</div>
+				<div className='col-12 col-lg-6 py-5'>map</div>
 			</div>
 		</div>
 	)

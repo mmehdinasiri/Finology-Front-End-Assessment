@@ -4,6 +4,7 @@ import {
 	BestExperiences,
 	EasyAccess,
 	CommentSection,
+	PeopleList,
 	Customers,
 	ContactUs
 } from './components'
@@ -15,6 +16,7 @@ const App = (): JSX.Element => {
 			<BestExperiences />
 			<EasyAccess />
 			<CommentSection />
+			<PeopleList />
 			<Customers />
 			<ContactUs />
 		</Layout>

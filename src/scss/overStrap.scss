@@ -10,7 +10,78 @@ a {
 img {
 	width: 100%;
 }
+.btn-primary {
+	background-color: $primary-color;
+	border-color: $primary-color;
+	&:hover {
+		background-color: darken($primary-color, 5);
+	}
+}
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.focus {
+	background-color: $primary-color;
+}
 
+.btn-add {
+	background-color: $light-purple;
+	border-color: $light-purple;
+	color: $purple;
+	&:hover {
+		color: $purple;
+		background-color: darken($light-purple, 5);
+	}
+}
+.btn-add:not(:disabled):not(.disabled):active,
+.btn-add:not(:disabled):not(.disabled).active,
+.show > .btn-add.dropdown-toggle,
+.btn-add:focus,
+.btn-add:active,
+.btn-add.focus {
+	color: $purple;
+	background-color: $light-purple;
+}
+
+.btn-edit {
+	background-color: $light-orang;
+	border-color: $light-orang;
+	color: $orange;
+	&:hover {
+		color: $orange;
+		background-color: darken($light-orang, 5);
+	}
+}
+.btn-edit:not(:disabled):not(.disabled):active,
+.btn-edit:not(:disabled):not(.disabled).active,
+.show > .btn-edit.dropdown-toggle,
+.btn-edit:focus,
+.btn-edit:active,
+.btn-edit.focus {
+	color: $orange;
+	background-color: $light-orang;
+}
+
+.btn-delete {
+	background-color: $light-red;
+	border-color: $light-red;
+	color: $red;
+	&:hover {
+		color: $red;
+		background-color: darken($light-red, 5);
+	}
+}
+.btn-delete:not(:disabled):not(.disabled):active,
+.btn-delete:not(:disabled):not(.disabled).active,
+.show > .btn-delete.dropdown-toggle,
+.btn-delete:focus,
+.btn-delete:active,
+.btn-delete.focus {
+	color: $red;
+	background-color: $light-red;
+}
 .swiper-container {
 	.swiper-pagination-fraction,
 	.swiper-pagination-custom,

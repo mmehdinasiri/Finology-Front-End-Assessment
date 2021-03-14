@@ -42,7 +42,7 @@ const CommentSection: FC = () => {
 	return (
 		<div className='container py-5'>
 			<div className='d-flex align-items-center mb-5'>
-				<div className='p-2 is-bg-red is-white rounded-circle mr-3'>
+				<div className='p-2 is-bg-red is-white rounded-circle mr-3 is-red-shadow'>
 					<Heart />
 				</div>
 				<h3 className='is-wight-800 is-primary m-0'>
