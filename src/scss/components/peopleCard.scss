@@ -1,0 +1,84 @@
+$people-margin: 16px;
+$people-number: 5;
+$people-margin-lg: 12px;
+$people-number-lg: 4;
+$people-margin-md: 10px;
+$people-number-md: 3;
+$people-margin-sm: 8px;
+$people-number-sm: 2;
+.people-card {
+	position: relative;
+	transition: all 200ms ease-in-out;
+	cursor: pointer;
+	display: inline-block;
+	width: calc(
+		(100% - (#{$people-margin} * #{$people-number * 2})) / #{$people-number}
+	);
+	box-shadow: $people-shadow;
+	border-radius: rem(12px);
+	margin: rem(0 $people-margin);
+	@include media-breakpoint-down(lg) {
+		width: calc(
+			(100% - (#{$people-margin-lg} * #{$people-number-lg * 2})) / #{$people-number-lg}
+		);
+		margin: rem(0 $people-margin-lg);
+	}
+	@include media-breakpoint-down(md) {
+		width: calc(
+			(100% - (#{$people-margin-md} * #{$people-number-md * 2})) / #{$people-number-md}
+		);
+		margin: rem(0 $people-margin-md);
+	}
+	@include media-breakpoint-down(sm) {
+		width: calc(
+			(100% - (#{$people-margin-sm} * #{$people-number-sm * 2})) / #{$people-number-sm}
+		);
+		margin: rem(0 $people-margin-sm);
+	}
+	.checked-icon,
+	.edit-icon {
+		position: absolute;
+		top: 0;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 200ms ease-in-out;
+		transform: scale(0.5);
+		border-radius: 50%;
+		z-index: $base-z-index + 10;
+	}
+	.edit-icon {
+		background-color: $light-blue;
+		color: $blue;
+		right: 0;
+	}
+	.checked-icon {
+		left: 0;
+		border: rem(2px) solid $primary-color;
+		color: white;
+		svg {
+			display: none;
+		}
+	}
+	&.select-mode {
+		.checked-icon {
+			opacity: 1;
+			visibility: visible;
+		}
+		.is-selected {
+			svg {
+				display: block;
+			}
+		}
+	}
+	&:hover {
+		box-shadow: $people-shadow-hover;
+		&:not(.select-mode) .edit-icon {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	img {
+		border-top-left-radius: rem(12px);
+		border-top-right-radius: rem(12px);
+	}
+}
