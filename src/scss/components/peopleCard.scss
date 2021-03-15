@@ -15,7 +15,7 @@ $people-number-sm: 2;
 		(100% - (#{$people-margin} * #{$people-number * 2})) / #{$people-number}
 	);
 	box-shadow: $people-shadow;
-	border-radius: rem(12px);
+	border-radius: $people-card-radius;
 	margin: rem(0 $people-margin);
 	@include media-breakpoint-down(lg) {
 		width: calc(
@@ -82,7 +82,7 @@ $people-number-sm: 2;
 		}
 	}
 	img {
-		border-top-left-radius: rem(12px);
-		border-top-right-radius: rem(12px);
+		border-top-left-radius: $people-card-radius;
+		border-top-right-radius: $people-card-radius;
 	}
 }

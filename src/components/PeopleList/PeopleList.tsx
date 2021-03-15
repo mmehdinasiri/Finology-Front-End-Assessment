@@ -1,5 +1,6 @@
 import { FC, useState } from 'react'
 import PeopleCard from './PeopleCard'
+import { Modal } from '../'
 import { ReactComponent as HappyFace } from '../../icons/happy-face.svg'
 import { ReactComponent as Garbage } from '../../icons/garbage.svg'
 import { v4 as uuidv4 } from 'uuid'
@@ -67,6 +68,7 @@ const UserList = [
 	}
 ]
 const PeopleList: FC = () => {
+	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 	const [selectMode, setSelectMode] = useState<boolean>(false)
 	const [peopleList, setPeopleList] = useState<IPeople[]>(UserList)
 	const [selectList, setSelectList] = useState<IPeople[]>([])
@@ -113,6 +115,7 @@ const PeopleList: FC = () => {
 							<button
 								className='btn btn-add float-right px-3 font-18 '
 								type='button'
+								onClick={() => setIsModalOpen(true)}
 							>
 								add
 							</button>
@@ -157,6 +160,9 @@ const PeopleList: FC = () => {
 					</div>
 				</div>
 			</div>
+			<Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
+				<h2 className='my-4'>آیا اطمینان دارید؟ </h2>
+			</Modal>
 		</div>
 	)
 }
