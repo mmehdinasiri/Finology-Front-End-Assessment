@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import ContactUsForm from './ContactUsForm'
+import { ContactUsForm } from '../'
 
 const ContactUs: FC = () => {
 	return (

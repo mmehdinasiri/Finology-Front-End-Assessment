@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid'
 interface IInput {
 	placeholder?: string
 	inputClass?: string
@@ -22,11 +23,12 @@ const Input = ({
 	label,
 	labelClass
 }: IInput): JSX.Element => {
+	const inpurId = uuidv4()
 	return (
 		<div className={`form-group ${classList}`}>
 			{label && (
 				<label
-					htmlFor={fieldName}
+					htmlFor={inpurId}
 					className={`d-block font-12  ${labelClass || ''}`}
 				>
 					{label}
@@ -35,7 +37,7 @@ const Input = ({
 			<input
 				ref={register}
 				type={type}
-				id={fieldName}
+				id={inpurId}
 				name={fieldName}
 				className={`form-control ${inputClass || ''}`}
 				placeholder={placeholder}

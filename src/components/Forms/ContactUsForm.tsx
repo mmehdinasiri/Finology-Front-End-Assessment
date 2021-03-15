@@ -1,4 +1,4 @@
-import { Input, Textarea, DropDown } from '../'
+import { Input, Textarea, DropDown } from '..'
 import { useForm } from 'react-hook-form'
 import { FC } from 'react'
 export type IContactForm = {
@@ -12,21 +12,17 @@ const subjectOption = [
 	{ name: 'option2', value: 'option2' }
 ]
 const ContactUsForm: FC = () => {
-	const {
-		register: registerUser,
-		handleSubmit: handleSubmitUser,
-		errors: errorsUser
-	} = useForm<IContactForm>()
+	const { register, handleSubmit, errors } = useForm<IContactForm>()
 
 	const submitForm = ({ name, subject, email, message }: IContactForm) => {
 		alert(JSON.stringify({ name, subject, email, message }, null, 4))
 	}
 	return (
-		<form noValidate onSubmit={handleSubmitUser(submitForm)} className=' px-2'>
+		<form noValidate onSubmit={handleSubmit(submitForm)} className=' px-2'>
 			<div className='form-group mobile-input mt-3'>
 				<Input
-					register={registerUser({ required: true })}
-					errors={errorsUser}
+					register={register({ required: true })}
+					errors={errors}
 					labelClass='is-primary font-18 is-wight-600'
 					fieldName='name'
 					type='text'
@@ -34,11 +30,11 @@ const ContactUsForm: FC = () => {
 					placeholder='Enter your name'
 				/>
 				<Input
-					register={registerUser({
+					register={register({
 						required: true,
 						pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
 					})}
-					errors={errorsUser}
+					errors={errors}
 					labelClass='is-primary font-18 is-wight-600'
 					fieldName='email'
 					type='text'
@@ -46,8 +42,8 @@ const ContactUsForm: FC = () => {
 					placeholder='Enter your email'
 				/>
 				<DropDown
-					register={registerUser({ required: true })}
-					errors={errorsUser}
+					register={register({ required: true })}
+					errors={errors}
 					labelClass='is-primary font-18 is-wight-600'
 					fieldName='subject'
 					label='Subject'
@@ -55,9 +51,9 @@ const ContactUsForm: FC = () => {
 					placeholder='Please select your subject'
 				/>
 				<Textarea
-					register={registerUser({ required: true })}
+					register={register({ required: true })}
 					labelClass='is-primary font-18 is-wight-600'
-					errors={errorsUser}
+					errors={errors}
 					fieldName='message'
 					label='Message'
 					rows={6}

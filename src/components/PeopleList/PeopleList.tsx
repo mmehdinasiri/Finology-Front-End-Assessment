@@ -4,66 +4,77 @@ import { Modal } from '../'
 import { ReactComponent as HappyFace } from '../../icons/happy-face.svg'
 import { ReactComponent as Garbage } from '../../icons/garbage.svg'
 import { v4 as uuidv4 } from 'uuid'
+import PeopleForm from '../Forms/PeopleForm'
 
 export interface IPeople {
 	name: string
 	position: string
 	img: string
-	id: string
+	description: string
+	id?: string
 }
 const UserList = [
 	{
 		name: 'Frank Ltranam',
 		position: 'CEO',
 		img: '/assets/people/darlene-chabrat.jpg',
+		description: '',
 		id: uuidv4()
 	},
 	{
 		name: 'Bob Shefley',
 		position: 'UI/UX Designer',
 		img: '/assets/people/david-campion.jpg',
+		description: '',
 		id: uuidv4()
 	},
 	{
 		name: 'Bob Shefley',
 		position: 'UI/UX Designer',
 		img: '/assets/people/gaetan-houssin.jpg',
+		description: '',
 		id: uuidv4()
 	},
 	{
 		name: 'Frank Ltranam',
 		position: 'CEO',
 		img: '/assets/people/jerome-boudot.jpg',
+		description: '',
 		id: uuidv4()
 	},
 	{
 		name: 'Bob Shefley',
 		position: 'UI/UX Designer',
 		img: '/assets/people/jerome-mahuet.jpg',
+		description: '',
 		id: uuidv4()
 	},
 	{
 		name: 'Bob Shefley',
 		position: 'UI/UX Designer',
 		img: '/assets/people/manuela-faveri.jpg',
+		description: '',
 		id: uuidv4()
 	},
 	{
 		name: 'Frank Ltranam',
 		position: 'CEO',
 		img: '/assets/people/nicolas-lebarreau.jpg',
+		description: '',
 		id: uuidv4()
 	},
 	{
 		name: 'Bob Shefley',
 		position: 'UI/UX Designer',
 		img: '/assets/people/romane-regad.jpg',
+		description: '',
 		id: uuidv4()
 	},
 	{
 		name: 'Bob Shefley',
 		position: 'UI/UX Designer',
 		img: '/assets/people/gaetan-houssin.jpg',
+		description: '',
 		id: uuidv4()
 	}
 ]
@@ -161,7 +172,7 @@ const PeopleList: FC = () => {
 				</div>
 			</div>
 			<Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
-				<h2 className='my-4'>آیا اطمینان دارید؟ </h2>
+				<PeopleForm />
 			</Modal>
 		</div>
 	)

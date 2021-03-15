@@ -4,11 +4,11 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: white;
-	padding: 50px;
+	padding: rem(16px);
 	z-index: $base-z-index-modal-overlay + 1;
-	max-width: 80%;
-	min-width: 40%;
-	text-align: center;
+	width: rem(280px);
+	// max-width: 80%;
+	// min-width: 40%;
 	border-radius: $people-card-radius;
 }
 .modal-overlay {
