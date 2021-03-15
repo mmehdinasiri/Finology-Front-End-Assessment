@@ -40,11 +40,15 @@ $people-number-sm: 2;
 		position: absolute;
 		top: 0;
 		opacity: 0;
-		visibility: hidden;
 		transition: all 200ms ease-in-out;
 		transform: scale(0.5);
 		border-radius: 50%;
 		z-index: $base-z-index + 10;
+		width: rem(48px);
+		height: rem(48px);
+		svg {
+			margin: auto;
+		}
 	}
 	.edit-icon {
 		background-color: $light-blue;
@@ -62,9 +66,9 @@ $people-number-sm: 2;
 	&.select-mode {
 		.checked-icon {
 			opacity: 1;
-			visibility: visible;
 		}
 		.is-selected {
+			background-color: $primary-color;
 			svg {
 				display: block;
 			}

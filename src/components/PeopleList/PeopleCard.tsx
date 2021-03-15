@@ -18,7 +18,8 @@ const PeopleCard: FC<IPeopleProps> = ({
 	selectList,
 	handelSelectList
 }) => {
-	const editMode = () => {
+	const editMode = (e: MouseEvent) => {
+		e.stopPropagation()
 		console.log(people.id)
 	}
 	const isSelected = () => {
@@ -32,17 +33,22 @@ const PeopleCard: FC<IPeopleProps> = ({
 			className={`people-card mb-4 text-center ${
 				selectMode ? 'select-mode' : ''
 			}`}
-			onClick={() => handelSelectMode(!selectMode)}
+			onClick={() => handelSelectMode(true)}
 		>
 			<img src={people.img} alt='people' />
 			<h3 className='font-14 my-3 is-wight-600 is-text-gray'>{people.name}</h3>
 			<h4 className='font-12 my-3'>{people.position}</h4>
-			<button className='btn edit-icon p-3' onClick={editMode}>
+			<button
+				className={`btn edit-icon ${
+					selectMode ? 'is-pointer-events-none' : ''
+				}`}
+				onClick={(e: any) => editMode(e)}
+			>
 				<Edit />
 			</button>
 			<button
-				className={`btn checked-icon p-3 ${isSelected()}`}
-				onClick={(e) => handelSelectList(e, people)}
+				className={`btn checked-icon is-white ${isSelected()}`}
+				onClick={(e: any) => handelSelectList(e, people)}
 			>
 				<Checked />
 			</button>

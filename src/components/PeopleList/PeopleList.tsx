@@ -8,7 +8,7 @@ export interface IPeople {
 	name: string
 	position: string
 	img: string
-	id: number
+	id: string
 }
 const UserList = [
 	{
@@ -72,7 +72,7 @@ const PeopleList: FC = () => {
 	const handelSelectList = (e: MouseEvent, people: IPeople) => {
 		e.stopPropagation()
 		if (selectList.find((item) => item.id === people.id)) {
-			setSelectList(selectList.filter((item) => item.id === people.id))
+			setSelectList([...selectList.filter((item) => item.id !== people.id)])
 		} else {
 			setSelectList([
 				...selectList,
