@@ -8,7 +8,7 @@ interface IPeopleProps {
 	selectMode: boolean
 	handelSelectMode: Dispatch<SetStateAction<boolean>>
 	selectList: IPeople[]
-	handelSelectList: (e: MouseEvent, people: IPeople) => void
+	handelSelectList: (people: IPeople) => void
 }
 
 const PeopleCard: FC<IPeopleProps> = ({
@@ -28,12 +28,20 @@ const PeopleCard: FC<IPeopleProps> = ({
 		}
 		return ''
 	}
+	const handelCardClick = () => {
+		if (!selectMode) {
+			handelSelectMode(true)
+			handelSelectList(people)
+		} else {
+			handelSelectList(people)
+		}
+	}
 	return (
 		<div
 			className={`people-card mb-4 text-center ${
 				selectMode ? 'select-mode' : ''
 			}`}
-			onClick={() => handelSelectMode(true)}
+			onClick={handelCardClick}
 		>
 			<img src={people.img} alt='people' />
 			<h3 className='font-14 my-3 is-wight-600 is-text-gray'>{people.name}</h3>
@@ -46,10 +54,7 @@ const PeopleCard: FC<IPeopleProps> = ({
 			>
 				<Edit />
 			</button>
-			<button
-				className={`btn checked-icon is-white ${isSelected()}`}
-				onClick={(e: any) => handelSelectList(e, people)}
-			>
+			<button className={`btn checked-icon is-white ${isSelected()}`}>
 				<Checked />
 			</button>
 		</div>

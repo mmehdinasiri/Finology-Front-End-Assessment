@@ -68,9 +68,9 @@ const UserList = [
 ]
 const PeopleList: FC = () => {
 	const [selectMode, setSelectMode] = useState<boolean>(false)
+	const [peopleList, setPeopleList] = useState<IPeople[]>(UserList)
 	const [selectList, setSelectList] = useState<IPeople[]>([])
-	const handelSelectList = (e: MouseEvent, people: IPeople) => {
-		e.stopPropagation()
+	const handelSelectList = (people: IPeople) => {
 		if (selectList.find((item) => item.id === people.id)) {
 			setSelectList([...selectList.filter((item) => item.id !== people.id)])
 		} else {
@@ -81,6 +81,18 @@ const PeopleList: FC = () => {
 				}
 			])
 		}
+	}
+	const removePeople = () => {
+		const newPeopleList: IPeople[] = peopleList.filter((person: IPeople) => {
+			return !selectList.find((removedPerson: IPeople) => {
+				return removedPerson.id === person.id
+			})
+		})
+		setPeopleList(newPeopleList)
+	}
+	const cancelSelectMode = () => {
+		setSelectList([])
+		setSelectMode(false)
 	}
 	return (
 		<div className='container py-5'>
@@ -96,33 +108,43 @@ const PeopleList: FC = () => {
 					</div>
 				</div>
 				<div className='col-6 '>
-					<button
-						className='btn btn-add float-right px-3 font-18'
-						type='button'
-					>
-						add
-					</button>
-					<button
-						className='btn btn-edit float-right px-3 font-18'
-						type='button'
-					>
-						edit
-					</button>
-					<div className='float-right'>
-						<button className='btn  px-1 font-18' type='button'>
-							cancel
-						</button>
-						<button
-							className='btn btn-delete  p-2 font-18 rounded-circle'
-							type='button'
-						>
-							<Garbage />
-						</button>
-					</div>
+					{!selectMode || !peopleList.length ? (
+						<>
+							<button
+								className='btn btn-add float-right px-3 font-18 '
+								type='button'
+							>
+								add
+							</button>
+							<button
+								className='btn btn-edit float-right px-3 font-18 mr-2'
+								type='button'
+							>
+								edit
+							</button>
+						</>
+					) : (
+						<div className='float-right'>
+							<button
+								className='btn  px-1 font-18 mr-2'
+								type='button'
+								onClick={cancelSelectMode}
+							>
+								cancel
+							</button>
+							<button
+								className='btn btn-delete  p-2 font-18 rounded-circle'
+								type='button'
+								onClick={removePeople}
+							>
+								<Garbage />
+							</button>
+						</div>
+					)}
 				</div>
 				<div className='col-12'>
 					<div className='text-center'>
-						{UserList.map((item: IPeople) => (
+						{peopleList.map((item: IPeople) => (
 							<PeopleCard
 								people={item}
 								key={item.id}
