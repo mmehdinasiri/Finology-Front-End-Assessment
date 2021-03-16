@@ -3,85 +3,14 @@ import PeopleCard from './PeopleCard'
 import { Modal } from '../'
 import { ReactComponent as HappyFace } from '../../icons/happy-face.svg'
 import { ReactComponent as Garbage } from '../../icons/garbage.svg'
-import { v4 as uuidv4 } from 'uuid'
 import PeopleForm from '../Forms/PeopleForm'
+import { usePeoplesState, usePeopleActions } from '../../store/peopleProvider'
 
-export interface IPeople {
-	name: string
-	position: string
-	img: string
-	description: string
-	id?: string
-}
-const UserList = [
-	{
-		name: 'Frank Ltranam',
-		position: 'CEO',
-		img: '/assets/people/darlene-chabrat.jpg',
-		description: '',
-		id: uuidv4()
-	},
-	{
-		name: 'Bob Shefley',
-		position: 'UI/UX Designer',
-		img: '/assets/people/david-campion.jpg',
-		description: '',
-		id: uuidv4()
-	},
-	{
-		name: 'Bob Shefley',
-		position: 'UI/UX Designer',
-		img: '/assets/people/gaetan-houssin.jpg',
-		description: '',
-		id: uuidv4()
-	},
-	{
-		name: 'Frank Ltranam',
-		position: 'CEO',
-		img: '/assets/people/jerome-boudot.jpg',
-		description: '',
-		id: uuidv4()
-	},
-	{
-		name: 'Bob Shefley',
-		position: 'UI/UX Designer',
-		img: '/assets/people/jerome-mahuet.jpg',
-		description: '',
-		id: uuidv4()
-	},
-	{
-		name: 'Bob Shefley',
-		position: 'UI/UX Designer',
-		img: '/assets/people/manuela-faveri.jpg',
-		description: '',
-		id: uuidv4()
-	},
-	{
-		name: 'Frank Ltranam',
-		position: 'CEO',
-		img: '/assets/people/nicolas-lebarreau.jpg',
-		description: '',
-		id: uuidv4()
-	},
-	{
-		name: 'Bob Shefley',
-		position: 'UI/UX Designer',
-		img: '/assets/people/romane-regad.jpg',
-		description: '',
-		id: uuidv4()
-	},
-	{
-		name: 'Bob Shefley',
-		position: 'UI/UX Designer',
-		img: '/assets/people/gaetan-houssin.jpg',
-		description: '',
-		id: uuidv4()
-	}
-]
 const PeopleList: FC = () => {
+	const peopleList = usePeoplesState()
+	const { removePeoples } = usePeopleActions()
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 	const [selectMode, setSelectMode] = useState<boolean>(false)
-	const [peopleList, setPeopleList] = useState<IPeople[]>(UserList)
 	const [selectList, setSelectList] = useState<IPeople[]>([])
 	const handelSelectList = (people: IPeople) => {
 		if (selectList.find((item) => item.id === people.id)) {
@@ -96,12 +25,13 @@ const PeopleList: FC = () => {
 		}
 	}
 	const removePeople = () => {
-		const newPeopleList: IPeople[] = peopleList.filter((person: IPeople) => {
-			return !selectList.find((removedPerson: IPeople) => {
-				return removedPerson.id === person.id
-			})
-		})
-		setPeopleList(newPeopleList)
+		removePeoples(selectList)
+		// const newPeopleList: IPeople[] = peopleList.filter((person: IPeople) => {
+		// 	return !selectList.find((removedPerson: IPeople) => {
+		// 		return removedPerson.id === person.id
+		// 	})
+		// })
+		// setPeopleList(newPeopleList)
 	}
 	const cancelSelectMode = () => {
 		setSelectList([])

@@ -1,7 +1,6 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 import { ReactComponent as Edit } from '../../icons/pencil.svg'
 import { ReactComponent as Checked } from '../../icons/checked.svg'
-import { IPeople } from './PeopleList'
 
 interface IPeopleProps {
 	people: IPeople

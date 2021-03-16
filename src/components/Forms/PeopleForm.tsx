@@ -1,7 +1,6 @@
 import { FC, useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { ReactComponent as User } from '../../icons/user.svg'
 import { useForm } from 'react-hook-form'
-import { IPeople } from '../PeopleList/PeopleList'
 import { Input } from '../'
 import Textarea from '../Inputs/Textarea'
 

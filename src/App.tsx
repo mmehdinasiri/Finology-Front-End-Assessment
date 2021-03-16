@@ -8,6 +8,7 @@ import {
 	Customers,
 	ContactUs
 } from './components'
+import PeopleProvider from './store/peopleProvider'
 
 const App = (): JSX.Element => {
 	return (
@@ -16,7 +17,9 @@ const App = (): JSX.Element => {
 			<BestExperiences />
 			<EasyAccess />
 			<CommentSection />
-			<PeopleList />
+			<PeopleProvider>
+				<PeopleList />
+			</PeopleProvider>
 			<Customers />
 			<ContactUs />
 		</Layout>
