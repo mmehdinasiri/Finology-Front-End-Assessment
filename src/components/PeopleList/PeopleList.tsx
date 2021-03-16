@@ -172,7 +172,7 @@ const PeopleList: FC = () => {
 				</div>
 			</div>
 			<Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
-				<PeopleForm />
+				<PeopleForm handleCloseModal={setIsModalOpen} />
 			</Modal>
 		</div>
 	)

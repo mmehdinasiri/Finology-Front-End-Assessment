@@ -1,11 +1,17 @@
-import { FC } from 'react'
+import { FC, useState, useEffect, Dispatch, SetStateAction } from 'react'
+import { ReactComponent as User } from '../../icons/user.svg'
 import { useForm } from 'react-hook-form'
 import { IPeople } from '../PeopleList/PeopleList'
 import { Input } from '../'
 import Textarea from '../Inputs/Textarea'
 
-const PeopleForm: FC = () => {
+interface PeopleFormProps {
+	handleCloseModal: Dispatch<SetStateAction<boolean>>
+}
+const PeopleForm: FC<PeopleFormProps> = ({ handleCloseModal }) => {
+	const [img, setImage] = useState<any>('')
 	const {
+		watch: watchPeople,
 		register: registerPeople,
 		handleSubmit: handleSubmitPeople,
 		errors: errorsPeople
@@ -14,8 +20,18 @@ const PeopleForm: FC = () => {
 	const submitForm = ({ name, position, img, description }: IPeople) => {
 		alert(JSON.stringify({ name, position, img, description }, null, 4))
 	}
+	useEffect(() => {
+		if (watchPeople().img.length) {
+			const reader = new FileReader()
+			const file: any = watchPeople().img[0]
+			reader.onloadend = () => {
+				setImage(reader.result)
+			}
+			reader.readAsDataURL(file)
+		}
+	}, [watchPeople().img])
 	return (
-		<div>
+		<div className='people-form'>
 			<p
 				className='is-primary'
 				style={{ position: 'absolute', top: '8xp', left: '16px' }}
@@ -27,6 +43,27 @@ const PeopleForm: FC = () => {
 				onSubmit={handleSubmitPeople(submitForm)}
 				className='pt-5'
 			>
+				<label
+					htmlFor='photo-upload'
+					className='custom-file-upload  d-block my-3'
+				>
+					<div className='people-form--img-wrap'>
+						{img ? (
+							<img src={img} className='people-form--img-wrap--img' />
+						) : (
+							<div className='people-form--img-wrap--svg'>
+								<User />
+							</div>
+						)}
+						<input
+							id='photo-upload'
+							type='file'
+							name='img'
+							className='d-none'
+							ref={registerPeople({ required: true })}
+						/>
+					</div>
+				</label>
 				<Input
 					register={registerPeople({ required: true })}
 					errors={errorsPeople}
@@ -58,7 +95,11 @@ const PeopleForm: FC = () => {
 				/>
 
 				<div className='text-right'>
-					<button className='btn px-1 mr-2' type='button'>
+					<button
+						className='btn px-1 mr-2'
+						type='button'
+						onClick={() => handleCloseModal(false)}
+					>
 						cancel
 					</button>
 					<button className='btn btn-primary px-3' type='submit'>
