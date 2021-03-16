@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { ContactUsForm } from '../'
+import { ContactUsForm, Maps } from '../'
 
 const ContactUs: FC = () => {
 	return (
@@ -13,7 +13,9 @@ const ContactUs: FC = () => {
 						<ContactUsForm />
 					</div>
 				</div>
-				<div className='col-12 col-lg-6 py-5'>map</div>
+				<div className='col-12 col-lg-6 py-5 fix-wrapper'>
+					<Maps />
+				</div>
 			</div>
 		</div>
 	)
