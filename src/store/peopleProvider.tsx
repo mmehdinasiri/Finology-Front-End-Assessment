@@ -105,6 +105,18 @@ const usePeopleActions = () => {
 	const addPeople = (newPerson: IPeople) => {
 		setPeopleAction((oldState: IPeople[]) => [...oldState, newPerson])
 	}
+	const editPeople = (editPerson: IPeople) => {
+		const personIndex = peopleList
+			.map(function (e) {
+				return e.id
+			})
+			.indexOf(editPerson.id)
+		if (personIndex !== -1) {
+			peopleList[personIndex] = editPerson
+			setPeopleAction(peopleList)
+		}
+	}
+
 	const removePeoples = (removedPersons: IPeople[]) => {
 		const newPeopleList: IPeople[] = peopleList.filter((person: IPeople) => {
 			return !removedPersons.find((removedPersons: IPeople) => {
@@ -113,7 +125,7 @@ const usePeopleActions = () => {
 		})
 		setPeopleAction(newPeopleList)
 	}
-	return { addPeople, removePeoples }
+	return { addPeople, editPeople, removePeoples }
 }
 
 export { usePeopleActions, usePeoplesState, useSetPeoplesState }

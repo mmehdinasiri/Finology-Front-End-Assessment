@@ -12,6 +12,7 @@ const PeopleList: FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 	const [selectMode, setSelectMode] = useState<boolean>(false)
 	const [selectList, setSelectList] = useState<IPeople[]>([])
+	const [selectForEdit, setSelectForEdit] = useState<IPeople | null>(null)
 	const handelSelectList = (people: IPeople) => {
 		if (selectList.find((item) => item.id === people.id)) {
 			setSelectList([...selectList.filter((item) => item.id !== people.id)])
@@ -26,6 +27,7 @@ const PeopleList: FC = () => {
 	}
 	const removePeople = () => {
 		removePeoples(selectList)
+		setSelectMode(false)
 	}
 	const cancelSelectMode = () => {
 		setSelectList([])
@@ -51,7 +53,10 @@ const PeopleList: FC = () => {
 							<button
 								className='btn btn-add float-right px-3 font-18 '
 								type='button'
-								onClick={() => setIsModalOpen(true)}
+								onClick={() => {
+									setSelectForEdit(null)
+									setIsModalOpen(true)
+								}}
 							>
 								add
 							</button>
@@ -91,13 +96,18 @@ const PeopleList: FC = () => {
 								handelSelectMode={setSelectMode}
 								selectList={selectList}
 								handelSelectList={handelSelectList}
+								handelEditPerson={setSelectForEdit}
+								handelModal={setIsModalOpen}
 							/>
 						))}
 					</div>
 				</div>
 			</div>
 			<Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
-				<PeopleForm handleCloseModal={setIsModalOpen} />
+				<PeopleForm
+					handleCloseModal={setIsModalOpen}
+					editedPerson={selectForEdit}
+				/>
 			</Modal>
 		</div>
 	)

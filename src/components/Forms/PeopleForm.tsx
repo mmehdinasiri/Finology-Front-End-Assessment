@@ -8,25 +8,45 @@ import { v4 as uuidv4 } from 'uuid'
 
 interface PeopleFormProps {
 	handleCloseModal: Dispatch<SetStateAction<boolean>>
+	editedPerson: IPeople | null
 }
-const PeopleForm: FC<PeopleFormProps> = ({ handleCloseModal }) => {
-	const { addPeople } = usePeopleActions()
-	const [img, setImage] = useState<any>('')
+const PeopleForm: FC<PeopleFormProps> = ({
+	handleCloseModal,
+	editedPerson
+}) => {
+	const { addPeople, editPeople } = usePeopleActions()
+	const [img, setImage] = useState<any>(editedPerson?.img || '')
 	const {
 		watch: watchPeople,
 		register: registerPeople,
 		handleSubmit: handleSubmitPeople,
 		errors: errorsPeople
-	} = useForm<IPeople>()
+	} = useForm<IPeople>({
+		defaultValues: {
+			name: editedPerson?.name || '',
+			position: editedPerson?.position || '',
+			description: editedPerson?.description || ''
+		}
+	})
 
 	const submitPeopleForm = ({ name, position, img, description }: IPeople) => {
-		addPeople({
-			name,
-			position,
-			img: '',
-			description,
-			id: uuidv4()
-		})
+		if (editedPerson) {
+			editPeople({
+				name,
+				position,
+				img: '',
+				description,
+				id: editedPerson.id
+			})
+		} else {
+			addPeople({
+				name,
+				position,
+				img: '',
+				description,
+				id: uuidv4()
+			})
+		}
 		handleCloseModal(false)
 	}
 	useEffect(() => {
@@ -39,6 +59,7 @@ const PeopleForm: FC<PeopleFormProps> = ({ handleCloseModal }) => {
 			reader.readAsDataURL(file)
 		}
 	}, [watchPeople().img])
+
 	return (
 		<div className='people-form'>
 			<p

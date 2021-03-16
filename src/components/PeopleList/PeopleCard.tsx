@@ -8,6 +8,8 @@ interface IPeopleProps {
 	handelSelectMode: Dispatch<SetStateAction<boolean>>
 	selectList: IPeople[]
 	handelSelectList: (people: IPeople) => void
+	handelEditPerson: Dispatch<SetStateAction<IPeople | null>>
+	handelModal: Dispatch<SetStateAction<boolean>>
 }
 
 const PeopleCard: FC<IPeopleProps> = ({
@@ -15,11 +17,14 @@ const PeopleCard: FC<IPeopleProps> = ({
 	selectMode,
 	handelSelectMode,
 	selectList,
-	handelSelectList
+	handelSelectList,
+	handelEditPerson,
+	handelModal
 }) => {
 	const editMode = (e: MouseEvent) => {
 		e.stopPropagation()
-		console.log(people.id)
+		handelEditPerson(people)
+		handelModal(true)
 	}
 	const isSelected = () => {
 		if (selectList.find((item) => item.id === people.id)) {
