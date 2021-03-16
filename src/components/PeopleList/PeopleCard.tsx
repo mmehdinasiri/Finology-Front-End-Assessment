@@ -49,7 +49,7 @@ const PeopleCard: FC<IPeopleProps> = ({
 			onClick={handelCardClick}
 		>
 			<ImageRatio classList='is-top-border' ratio='people'>
-				<img src={people.img} alt='people' classList='is-top-border' />
+				<img src={people.img} alt='people' className='is-top-border' />
 			</ImageRatio>
 			<h3 className='font-14 my-3 is-wight-600 is-text-gray'>{people.name}</h3>
 			<h4 className='font-12 my-3'>{people.position}</h4>
