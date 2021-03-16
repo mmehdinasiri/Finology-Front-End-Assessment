@@ -103,10 +103,7 @@ const usePeopleActions = () => {
 	const setPeopleAction = useSetPeoplesState()
 
 	const addPeople = (newPerson: IPeople) => {
-		setPeopleAction((oldState: IPeople[]) => ({
-			...oldState,
-			newPerson
-		}))
+		setPeopleAction((oldState: IPeople[]) => [...oldState, newPerson])
 	}
 	const removePeoples = (removedPersons: IPeople[]) => {
 		const newPeopleList: IPeople[] = peopleList.filter((person: IPeople) => {

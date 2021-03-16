@@ -3,11 +3,14 @@ import { ReactComponent as User } from '../../icons/user.svg'
 import { useForm } from 'react-hook-form'
 import { Input } from '../'
 import Textarea from '../Inputs/Textarea'
+import { usePeopleActions } from '../../store/peopleProvider'
+import { v4 as uuidv4 } from 'uuid'
 
 interface PeopleFormProps {
 	handleCloseModal: Dispatch<SetStateAction<boolean>>
 }
 const PeopleForm: FC<PeopleFormProps> = ({ handleCloseModal }) => {
+	const { addPeople } = usePeopleActions()
 	const [img, setImage] = useState<any>('')
 	const {
 		watch: watchPeople,
@@ -16,8 +19,15 @@ const PeopleForm: FC<PeopleFormProps> = ({ handleCloseModal }) => {
 		errors: errorsPeople
 	} = useForm<IPeople>()
 
-	const submitForm = ({ name, position, img, description }: IPeople) => {
-		alert(JSON.stringify({ name, position, img, description }, null, 4))
+	const submitPeopleForm = ({ name, position, img, description }: IPeople) => {
+		addPeople({
+			name,
+			position,
+			img: '',
+			description,
+			id: uuidv4()
+		})
+		handleCloseModal(false)
 	}
 	useEffect(() => {
 		if (watchPeople().img.length) {
@@ -39,7 +49,7 @@ const PeopleForm: FC<PeopleFormProps> = ({ handleCloseModal }) => {
 			</p>
 			<form
 				noValidate
-				onSubmit={handleSubmitPeople(submitForm)}
+				onSubmit={handleSubmitPeople(submitPeopleForm)}
 				className='pt-5'
 			>
 				<label
@@ -59,7 +69,7 @@ const PeopleForm: FC<PeopleFormProps> = ({ handleCloseModal }) => {
 							type='file'
 							name='img'
 							className='d-none'
-							ref={registerPeople({ required: true })}
+							ref={registerPeople}
 						/>
 					</div>
 				</label>

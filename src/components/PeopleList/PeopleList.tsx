@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import PeopleCard from './PeopleCard'
 import { Modal } from '../'
 import { ReactComponent as HappyFace } from '../../icons/happy-face.svg'
@@ -7,7 +7,7 @@ import PeopleForm from '../Forms/PeopleForm'
 import { usePeoplesState, usePeopleActions } from '../../store/peopleProvider'
 
 const PeopleList: FC = () => {
-	const peopleList = usePeoplesState()
+	const peoples = usePeoplesState()
 	const { removePeoples } = usePeopleActions()
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 	const [selectMode, setSelectMode] = useState<boolean>(false)
@@ -26,17 +26,12 @@ const PeopleList: FC = () => {
 	}
 	const removePeople = () => {
 		removePeoples(selectList)
-		// const newPeopleList: IPeople[] = peopleList.filter((person: IPeople) => {
-		// 	return !selectList.find((removedPerson: IPeople) => {
-		// 		return removedPerson.id === person.id
-		// 	})
-		// })
-		// setPeopleList(newPeopleList)
 	}
 	const cancelSelectMode = () => {
 		setSelectList([])
 		setSelectMode(false)
 	}
+
 	return (
 		<div className='container py-5'>
 			<div className='row'>
@@ -51,7 +46,7 @@ const PeopleList: FC = () => {
 					</div>
 				</div>
 				<div className='col-6 '>
-					{!selectMode || !peopleList.length ? (
+					{!selectMode || !peoples.length ? (
 						<>
 							<button
 								className='btn btn-add float-right px-3 font-18 '
@@ -88,7 +83,7 @@ const PeopleList: FC = () => {
 				</div>
 				<div className='col-12'>
 					<div className='text-center'>
-						{peopleList.map((item: IPeople) => (
+						{peoples.map((item: IPeople) => (
 							<PeopleCard
 								people={item}
 								key={item.id}
