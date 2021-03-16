@@ -1,6 +1,7 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 import { ReactComponent as Edit } from '../../icons/pencil.svg'
 import { ReactComponent as Checked } from '../../icons/checked.svg'
+import { ImageRatio } from '../'
 
 interface IPeopleProps {
 	people: IPeople
@@ -47,7 +48,9 @@ const PeopleCard: FC<IPeopleProps> = ({
 			}`}
 			onClick={handelCardClick}
 		>
-			<img src={people.img} alt='people' />
+			<ImageRatio classList='is-top-border' ratio='people'>
+				<img src={people.img} alt='people' classList='is-top-border' />
+			</ImageRatio>
 			<h3 className='font-14 my-3 is-wight-600 is-text-gray'>{people.name}</h3>
 			<h4 className='font-12 my-3'>{people.position}</h4>
 			<button

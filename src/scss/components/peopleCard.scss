@@ -81,7 +81,7 @@ $people-number-sm: 2;
 			visibility: visible;
 		}
 	}
-	img {
+	.is-top-border {
 		border-top-left-radius: $people-card-radius;
 		border-top-right-radius: $people-card-radius;
 	}
