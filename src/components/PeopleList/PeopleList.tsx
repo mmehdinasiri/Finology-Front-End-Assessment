@@ -1,6 +1,5 @@
-import { FC, useEffect, useState } from 'react'
-import PeopleCard from './PeopleCard'
-import { Modal } from '../'
+import { FC, useState } from 'react'
+import { PeopleCard, PeopleCardHor, Modal } from '../'
 import { ReactComponent as HappyFace } from '../../icons/happy-face.svg'
 import { ReactComponent as Garbage } from '../../icons/garbage.svg'
 import PeopleForm from '../Forms/PeopleForm'
@@ -9,16 +8,21 @@ import { usePeoplesState, usePeopleActions } from '../../store/peopleProvider'
 const PeopleList: FC = () => {
 	const peoples = usePeoplesState()
 	const { removePeoples } = usePeopleActions()
-	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 	const [selectMode, setSelectMode] = useState<boolean>(false)
-	const [selectList, setSelectList] = useState<IPeople[]>([])
+
+	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+	const [isPreviewModalOpen, setIsPreviewModalOpen] = useState<boolean>(false)
+
 	const [selectForEdit, setSelectForEdit] = useState<IPeople | null>(null)
-	const handelSelectList = (people: IPeople) => {
-		if (selectList.find((item) => item.id === people.id)) {
-			setSelectList([...selectList.filter((item) => item.id !== people.id)])
+	const [selectForPreview, setSelectForPreview] = useState<IPeople | null>(null)
+
+	const [deleteList, setDeleteList] = useState<IPeople[]>([])
+	const handelDeleteList = (people: IPeople) => {
+		if (deleteList.find((item) => item.id === people.id)) {
+			setDeleteList([...deleteList.filter((item) => item.id !== people.id)])
 		} else {
-			setSelectList([
-				...selectList,
+			setDeleteList([
+				...deleteList,
 				{
 					...people
 				}
@@ -26,11 +30,11 @@ const PeopleList: FC = () => {
 		}
 	}
 	const removePeople = () => {
-		removePeoples(selectList)
+		removePeoples(deleteList)
 		setSelectMode(false)
 	}
 	const cancelSelectMode = () => {
-		setSelectList([])
+		setDeleteList([])
 		setSelectMode(false)
 	}
 
@@ -63,6 +67,9 @@ const PeopleList: FC = () => {
 							<button
 								className='btn btn-edit float-right px-3 font-18 mr-2'
 								type='button'
+								onClick={() => {
+									setSelectMode(true)
+								}}
 							>
 								edit
 							</button>
@@ -93,21 +100,33 @@ const PeopleList: FC = () => {
 								people={item}
 								key={item.id}
 								selectMode={selectMode}
-								handelSelectMode={setSelectMode}
-								selectList={selectList}
-								handelSelectList={handelSelectList}
-								handelEditPerson={setSelectForEdit}
+								deleteList={deleteList}
+								handelDeleteList={handelDeleteList}
 								handelModal={setIsModalOpen}
+								handelPreviewModal={setIsPreviewModalOpen}
+								handelEditPerson={setSelectForEdit}
+								handelPreviewPerson={setSelectForPreview}
 							/>
 						))}
 					</div>
 				</div>
 			</div>
-			<Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
+			<Modal
+				open={isModalOpen}
+				onClose={() => setIsModalOpen(false)}
+				classList='p-3'
+			>
 				<PeopleForm
 					handleCloseModal={setIsModalOpen}
 					editedPerson={selectForEdit}
 				/>
+			</Modal>
+			<Modal
+				open={isPreviewModalOpen}
+				onClose={() => setIsPreviewModalOpen(false)}
+				classList='is-preview-modal '
+			>
+				<PeopleCardHor people={selectForPreview} />
 			</Modal>
 		</div>
 	)

@@ -4,9 +4,10 @@
 
 .ratio-box {
 	width: 100%;
+	height: 100%;
 	overflow: hidden;
 	position: relative;
-	background-color: $text-color-light;
+	background-color: $ratio-bg;
 
 	&.ratio-box-is-transparent {
 		background-color: transparent;
@@ -36,7 +37,7 @@
 		padding-top: 56.25%;
 	}
 	&.ratio-box-people {
-		padding-top: 91.7%;
+		padding-top: 108%;
 	}
 
 	.ratio-box-content {

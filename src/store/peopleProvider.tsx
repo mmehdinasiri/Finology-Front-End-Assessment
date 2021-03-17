@@ -11,63 +11,80 @@ const UserList = [
 		name: 'Frank Ltranam',
 		position: 'CEO',
 		img: '/assets/people/darlene-chabrat.jpg',
-		description: '',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 		id: uuidv4()
 	},
 	{
 		name: 'Bob Shefley',
 		position: 'UI/UX Designer',
 		img: '/assets/people/david-campion.jpg',
-		description: '',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+
 		id: uuidv4()
 	},
 	{
 		name: 'Bob Shefley',
 		position: 'UI/UX Designer',
 		img: '/assets/people/gaetan-houssin.jpg',
-		description: '',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+
 		id: uuidv4()
 	},
 	{
 		name: 'Frank Ltranam',
 		position: 'CEO',
 		img: '/assets/people/jerome-boudot.jpg',
-		description: '',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+
 		id: uuidv4()
 	},
 	{
 		name: 'Bob Shefley',
 		position: 'UI/UX Designer',
 		img: '/assets/people/jerome-mahuet.jpg',
-		description: '',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+
 		id: uuidv4()
 	},
 	{
 		name: 'Bob Shefley',
 		position: 'UI/UX Designer',
 		img: '/assets/people/manuela-faveri.jpg',
-		description: '',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+
 		id: uuidv4()
 	},
 	{
 		name: 'Frank Ltranam',
 		position: 'CEO',
 		img: '/assets/people/nicolas-lebarreau.jpg',
-		description: '',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+
 		id: uuidv4()
 	},
 	{
 		name: 'Bob Shefley',
 		position: 'UI/UX Designer',
 		img: '/assets/people/romane-regad.jpg',
-		description: '',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+
 		id: uuidv4()
 	},
 	{
 		name: 'Bob Shefley',
 		position: 'UI/UX Designer',
 		img: '/assets/people/gaetan-houssin.jpg',
-		description: '',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+
 		id: uuidv4()
 	}
 ]

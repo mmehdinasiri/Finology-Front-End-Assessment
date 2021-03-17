@@ -1,26 +1,28 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 import { ReactComponent as Edit } from '../../icons/pencil.svg'
 import { ReactComponent as Checked } from '../../icons/checked.svg'
-import { ImageRatio } from '../'
+import { ImageRatio } from '..'
 
 interface IPeopleProps {
 	people: IPeople
 	selectMode: boolean
-	handelSelectMode: Dispatch<SetStateAction<boolean>>
-	selectList: IPeople[]
-	handelSelectList: (people: IPeople) => void
-	handelEditPerson: Dispatch<SetStateAction<IPeople | null>>
+	deleteList: IPeople[]
+	handelDeleteList: (people: IPeople) => void
 	handelModal: Dispatch<SetStateAction<boolean>>
+	handelPreviewModal: Dispatch<SetStateAction<boolean>>
+	handelEditPerson: Dispatch<SetStateAction<IPeople | null>>
+	handelPreviewPerson: Dispatch<SetStateAction<IPeople | null>>
 }
 
 const PeopleCard: FC<IPeopleProps> = ({
 	people,
 	selectMode,
-	handelSelectMode,
-	selectList,
-	handelSelectList,
+	deleteList,
+	handelDeleteList,
+	handelModal,
+	handelPreviewModal,
 	handelEditPerson,
-	handelModal
+	handelPreviewPerson
 }) => {
 	const editMode = (e: MouseEvent) => {
 		e.stopPropagation()
@@ -28,17 +30,17 @@ const PeopleCard: FC<IPeopleProps> = ({
 		handelModal(true)
 	}
 	const isSelected = () => {
-		if (selectList.find((item) => item.id === people.id)) {
+		if (deleteList.find((item) => item.id === people.id)) {
 			return 'is-selected'
 		}
 		return ''
 	}
 	const handelCardClick = () => {
-		if (!selectMode) {
-			handelSelectMode(true)
-			handelSelectList(people)
+		if (selectMode) {
+			handelDeleteList(people)
 		} else {
-			handelSelectList(people)
+			handelPreviewPerson(people)
+			handelPreviewModal(true)
 		}
 	}
 	return (

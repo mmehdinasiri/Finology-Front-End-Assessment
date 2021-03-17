@@ -82,7 +82,19 @@ $people-number-sm: 2;
 		}
 	}
 	.is-top-border {
+		border-radius: 0;
 		border-top-left-radius: $people-card-radius;
 		border-top-right-radius: $people-card-radius;
+	}
+	.is-left-border {
+		border-radius: 0;
+		border-top-left-radius: $people-card-radius;
+		border-bottom-left-radius: $people-card-radius;
+	}
+	&.is-hor {
+		display: block;
+		width: 100% !important;
+		box-shadow: none !important;
+		margin: 0;
 	}
 }
