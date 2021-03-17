@@ -1,0 +1,18 @@
+.contact-us {
+	.contact-us--map {
+		& > div {
+			height: 100%;
+		}
+
+		@include media-breakpoint-down(md) {
+			& > div {
+				height: rem(600px);
+			}
+		}
+		@include media-breakpoint-down(sm) {
+			& > div {
+				height: rem(400px);
+			}
+		}
+	}
+}

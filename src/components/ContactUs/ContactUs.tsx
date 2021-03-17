@@ -3,7 +3,7 @@ import { ContactUsForm, Maps } from '../'
 
 const ContactUs: FC = () => {
 	return (
-		<div className='container py-5'>
+		<div className='container py-5 contact-us'>
 			<h3 className='is-wight-800 is-primary m-0 text-center mb-5'>
 				Contact Us
 			</h3>
@@ -13,7 +13,7 @@ const ContactUs: FC = () => {
 						<ContactUsForm />
 					</div>
 				</div>
-				<div className='col-12 col-lg-6 py-5 fix-wrapper'>
+				<div className='col-12 col-lg-6 py-5 contact-us--map'>
 					<Maps />
 				</div>
 			</div>

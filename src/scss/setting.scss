@@ -28,6 +28,7 @@ $people-shadow-hover: 0px 6px 1rem 0px rgba(0, 0, 0, 0.2);
 $modal-overlay-bg: rgba(0, 0, 0, 0.4);
 
 $base-z-index: 10;
+$base-z-index-header: $base-z-index + 20;
 $base-z-index-modal-overlay: $base-z-index + 30;
 
 $people-card-radius: 12px;

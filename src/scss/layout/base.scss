@@ -9,4 +9,8 @@ body {
 
 .main-content {
 	min-height: calc(100vh - #{$footer-height} - 111px);
+
+	@include media-breakpoint-down(sm) {
+		padding-top: rem($header-height);
+	}
 }
