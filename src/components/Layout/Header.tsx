@@ -5,8 +5,8 @@ import { ReactComponent as Menu } from '../../icons/menu.svg'
 const Header: FC = () => {
 	const [toggleMenu, setToggleMenu] = useState<boolean>(false)
 	return (
-		<header>
-			<div className='container-fluid header'>
+		<header className='header'>
+			<div className='container-fluid header-desktop'>
 				<nav className='navbar navbar-expand-md container'>
 					<a className='navbar-brand' href='/'>
 						<img src='assets/header/logo.png' alt='logo' />
